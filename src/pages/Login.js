@@ -27,27 +27,41 @@ function Login() {
 
   return (
     <div className="auth-page">
+
       <div className="auth-card shadow-lg">
 
-        <h3 className="text-center mb-4 text-orange">Login</h3>
+        {/* 🌟 Header */}
+        <h3 className="text-center mb-2 text-orange">
+          👋 Welcome Back
+        </h3>
 
+        <p className="text-center text-muted mb-4">
+          Login to manage your expenses and track your spending smartly 💰
+        </p>
+
+        {/* FORM */}
         <form onSubmit={handleLogin}>
+
           <input
             className="form-control mb-3"
-            placeholder="Username"
+            placeholder="👤 Username"
             onChange={(e)=>setForm({...form,username:e.target.value})}
           />
 
           <input
             type="password"
             className="form-control mb-3"
-            placeholder="Password"
+            placeholder="🔒 Password"
             onChange={(e)=>setForm({...form,password:e.target.value})}
           />
 
-          <button className="btn btn-orange w-100">Login</button>
+          <button className="btn btn-orange w-100">
+            🚀 Login
+          </button>
+
         </form>
 
+        {/* Footer link */}
         <p className="text-center mt-3">
           New user? <Link to="/register">Register</Link>
         </p>
