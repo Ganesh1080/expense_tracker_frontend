@@ -1,0 +1,249 @@
+/* =====================================================
+   ROOT COLORS
+===================================================== */
+:root{
+  --orange:#ff7a00;
+  --orange-dark:#e56d00;
+  --orange-light:#fff1e6;
+
+  --black:#111111;
+  --dark-gray:#2c2c2c;
+  --light-gray:#6c757d;
+
+  --white:#ffffff;
+}
+
+/* =====================================================
+   GLOBAL + PREMIUM BACKGROUND
+===================================================== */
+body{
+  margin:0;
+  font-family:'Inter','Segoe UI',sans-serif;
+  color:var(--dark-gray);
+  overflow-x:hidden;
+  min-height:100vh;
+
+  /* ⭐ BEAUTIFUL GRADIENT BACKGROUND */
+  background:
+    radial-gradient(circle at top left,
+      rgba(255,122,0,0.15),
+      transparent 40%),
+    radial-gradient(circle at bottom right,
+      rgba(0,0,0,0.08),
+      transparent 45%),
+    linear-gradient(
+      135deg,
+      #fff8f2 0%,
+      #ffffff 45%,
+      #fff1e6 100%
+    );
+}
+
+/* FLOATING SOFT BLOBS */
+body::before,
+body::after{
+  content:"";
+  position:fixed;
+  width:320px;
+  height:320px;
+  border-radius:50%;
+  filter:blur(70px);
+  z-index:-1;
+  animation:float 10s ease-in-out infinite;
+}
+
+body::before{
+  top:-80px;
+  left:-80px;
+  background:rgba(255,122,0,0.15);
+}
+
+body::after{
+  bottom:-100px;
+  right:-80px;
+  background:rgba(0,0,0,0.08);
+  animation-delay:2s;
+}
+
+@keyframes float{
+  0%,100%{ transform:translateY(0); }
+  50%{ transform:translateY(-20px); }
+}
+
+/* =====================================================
+   NAVBAR (UNCHANGED)
+===================================================== */
+.custom-nav{
+  background:var(--orange);
+  box-shadow:0 4px 14px rgba(0,0,0,0.12);
+}
+
+.navbar-brand{
+  font-size:1.2rem;
+  font-weight:600;
+}
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+.btn-orange{
+  background:var(--orange);
+  color:white;
+  border:none;
+  border-radius:12px;
+  font-weight:600;
+  transition:.25s;
+}
+
+.btn-orange:hover{
+  background:var(--orange-dark);
+  transform:translateY(-2px);
+  box-shadow:0 8px 18px rgba(255,122,0,0.3);
+}
+
+/* =====================================================
+   AUTH PAGE
+===================================================== */
+.auth-page{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.auth-card{
+  width:380px;
+  padding:25px;
+  border-radius:18px;
+
+  background:rgba(255,255,255,0.9);
+  backdrop-filter:blur(10px);
+
+  box-shadow:0 12px 30px rgba(0,0,0,0.08);
+}
+
+/* =====================================================
+   TEXT
+===================================================== */
+.text-orange{
+  color:var(--orange);
+}
+
+/* =====================================================
+   DASHBOARD CARDS
+===================================================== */
+.dashboard-card{
+  border:none;
+  border-radius:18px;
+
+  background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(8px);
+
+  transition:.3s ease;
+}
+
+.dashboard-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 26px rgba(0,0,0,0.08);
+}
+
+/* =====================================================
+   EXPENSE CARDS
+===================================================== */
+.expense-card{
+  border:none;
+  border-radius:16px;
+  background:white;
+  padding:6px;
+  transition:.3s ease;
+  box-shadow:0 4px 12px rgba(0,0,0,0.06);
+}
+
+.expense-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 14px 24px rgba(0,0,0,0.12);
+}
+
+/* TITLE */
+.expense-card h5{
+  font-size:1.05rem;
+  font-weight:700;
+  color:var(--black);
+  margin-bottom:4px;
+}
+
+/* CATEGORY */
+.expense-card p{
+  font-size:0.9rem;
+  font-weight:500;
+  color:var(--light-gray);
+  margin:0;
+}
+
+.expense-card small{
+  font-size:0.8rem;
+  color:#888;
+}
+
+.expense-card .text-orange{
+  font-size:1.2rem;
+  font-weight:700;
+}
+
+/* =====================================================
+   FORM
+===================================================== */
+input.form-control,
+select.form-select{
+  border-radius:12px;
+  border:1px solid #eee;
+  transition:.2s ease;
+}
+
+input.form-control:focus,
+select.form-select:focus{
+  border-color:var(--orange);
+  box-shadow:0 0 0 0.2rem rgba(255,122,0,0.18);
+}
+
+/* =====================================================
+   LISTS
+===================================================== */
+ul{
+  padding-left:20px;
+}
+
+ul li{
+  margin-bottom:6px;
+  font-weight:500;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+@media (max-width:992px){
+  .dashboard-card{
+    margin-bottom:15px;
+  }
+}
+
+@media (max-width:576px){
+
+  body{
+    font-size:14px;
+  }
+
+  .auth-card{
+    width:100%;
+    padding:20px;
+  }
+
+  .expense-card{
+    margin-bottom:12px;
+  }
+
+  .dashboard-card{
+    padding:18px !important;
+  }
+}
