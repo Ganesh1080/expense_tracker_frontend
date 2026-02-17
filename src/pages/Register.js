@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import API from "../services/api";
 
 function Register() {
@@ -49,6 +49,11 @@ function Register() {
             Register
           </button>
         </form>
+
+        {/* 👇 Added Login link */}
+        <p className="text-center mt-3">
+          Already have an account? <Link to="/login">Login</Link>
+        </p>
 
       </div>
     </div>
