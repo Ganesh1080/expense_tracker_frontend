@@ -1,17 +1,18 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import API from "../services/api";   // 👈 use API
 
 function Register() {
-  const [form,setForm] = useState({
-    username:"", email:"", password:""
+  const [form, setForm] = useState({
+    username: "", email: "", password: ""
   });
 
   const navigate = useNavigate();
 
-  const handleRegister = async(e)=>{
+  const handleRegister = async (e) => {
     e.preventDefault();
-    await axios.post("http://127.0.0.1:8000/api/auth/register/", form);
+
+    await API.post("/api/auth/register/", form); // 👈 NO localhost
     navigate("/login");
   };
 
@@ -30,7 +31,6 @@ function Register() {
           <input type="password" className="form-control mb-3" placeholder="Password"
             onChange={(e)=>setForm({...form,password:e.target.value})}
           />
-
           <button className="btn btn-orange w-100">Register</button>
         </form>
       </div>
