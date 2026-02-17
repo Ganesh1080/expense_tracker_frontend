@@ -9,7 +9,7 @@ function Navbar() {
 
   // GET USER INFO FROM BACKEND
   useEffect(() => {
-    API.get("auth/me/")
+    API.get("/auth/me/")   // ✅ add leading /
       .then((res) => {
         setUsername(res.data.username);
       })

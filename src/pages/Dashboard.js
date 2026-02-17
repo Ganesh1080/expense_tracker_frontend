@@ -56,7 +56,7 @@ function Dashboard() {
   // FETCH EXPENSES
   const fetchExpenses = useCallback(async () => {
 
-    let url = "expenses/?";
+    let url = "/expenses/?";
 
     if (search) url += `search=${search}&`;
     if (category) url += `category=${category}&`;
@@ -74,7 +74,7 @@ function Dashboard() {
   const addExpense = async (e) => {
     e.preventDefault();
 
-    await API.post("expenses/", form);
+    await API.post("/expenses/", form);
 
     setForm({
       title: "",
@@ -88,7 +88,7 @@ function Dashboard() {
 
   // DELETE
   const deleteExpense = async (id) => {
-    await API.delete(`expenses/${id}/`);
+    await API.delete(`/expenses/${id}/`);
     fetchExpenses();
   };
 
@@ -96,7 +96,7 @@ function Dashboard() {
   const openEdit = (expense) => setEditExpense(expense);
 
   const saveEdit = async () => {
-    await API.put(`expenses/${editExpense.id}/`, editExpense);
+    await API.put(`/expenses/${editExpense.id}/`, editExpense);
     setEditExpense(null);
     fetchExpenses();
   };
